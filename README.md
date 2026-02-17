@@ -17,7 +17,7 @@ A regression model predicts the target’s center point **(cx, cy)** in **[0, 1]
 
 ---
 
-## Key Engineering Decisions
+## Key Points
 
 ### Preventing Data Leakage (Grouped Split)
 For localization, splitting is done **at the image level** (grouped by filename), ensuring objects from the same original frame never appear across train/val/test—preventing background memorization and leakage. :contentReference[oaicite:3]{index=3}
@@ -26,7 +26,7 @@ For localization, splitting is done **at the image level** (grouped by filename)
 A custom augmentation pipeline applies:
 - photometric noise (brightness/contrast)
 - horizontal flips **with synchronized label updates** (flipping `cx` → `1 - cx`)  
-This improves stability and reduces overfitting in regression training. :contentReference[oaicite:4]{index=4}
+This improves stability and reduces overfitting in regression training. 
 
 ---
 
